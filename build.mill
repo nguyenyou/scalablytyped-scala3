@@ -58,6 +58,10 @@ object ts extends BaseModule with ScoverageModule {
 
 }
 
+object scalajs extends BaseModule {
+    def moduleDeps = Seq(core, logging)
+}
+
 object scoverage extends ScoverageReport {
     override def scalaVersion     = Versions.scala3
     override def scoverageVersion = Versions.scoverage
