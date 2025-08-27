@@ -29,6 +29,7 @@ trait BaseModule extends ScalaModule {
 
   def mvnDeps = Seq(
     mvn"com.lihaoyi::sourcecode::${Versions.sourcecode}",
+    mvn"com.lihaoyi::fansi:${Versions.fansi}",
     mvn"io.circe::circe-core::${Versions.circe}",
     mvn"io.circe::circe-generic::${Versions.circe}",
     mvn"io.circe::circe-parser::${Versions.circe}"
@@ -36,3 +37,4 @@ trait BaseModule extends ScalaModule {
 }
 
 object core extends BaseModule
+object logging extends BaseModule
