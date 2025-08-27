@@ -36,7 +36,7 @@ trait BaseModule extends ScalaModule with ScoverageModule  {
     mvn"org.scala-lang.modules::scala-parser-combinators::${Versions.scalaParserCombinators}",
     mvn"io.circe::circe-core::${Versions.circe}",
     mvn"io.circe::circe-generic::${Versions.circe}",
-    mvn"io.circe::circe-parser::${Versions.circe}"
+    mvn"io.circe::circe-parser::${Versions.circe}",
   )
 
   def scoverageVersion = Versions.scoverage
@@ -49,6 +49,10 @@ trait BaseModule extends ScalaModule with ScoverageModule  {
 
 object core extends BaseModule
 object logging extends BaseModule
+object cli extends BaseModule
+object phases extends BaseModule {
+    def moduleDeps = Seq(core, logging)
+}
 object ts extends BaseModule with ScoverageModule {
   def moduleDeps = Seq(core, logging)
 
