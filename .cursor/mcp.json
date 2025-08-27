@@ -1,0 +1,7 @@
+{
+  "mcpServers": {
+    "scalablytyped-scala3-metals": {
+      "url": "http://localhost:65098/sse"
+    }
+  }
+}
