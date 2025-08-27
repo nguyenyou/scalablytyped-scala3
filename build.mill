@@ -30,11 +30,19 @@ trait BaseModule extends ScalaModule {
   def mvnDeps = Seq(
     mvn"com.lihaoyi::sourcecode::${Versions.sourcecode}",
     mvn"com.lihaoyi::fansi:${Versions.fansi}",
+    mvn"org.scala-lang.modules::scala-parser-combinators::${Versions.scalaParserCombinators}",
     mvn"io.circe::circe-core::${Versions.circe}",
     mvn"io.circe::circe-generic::${Versions.circe}",
     mvn"io.circe::circe-parser::${Versions.circe}"
   )
+  object test extends ScalaTests {
+    def mvnDeps = Seq(mvn"com.lihaoyi::utest:${Versions.utest}")
+    def testFramework = "utest.runner.Framework"
+  }
 }
 
 object core extends BaseModule
 object logging extends BaseModule
+object ts extends BaseModule {
+  def moduleDeps = Seq(core, logging)
+}
